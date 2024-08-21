@@ -18,11 +18,7 @@ return new class extends Migration
             $table->string('color')->default('#EEEEEE');
             $table->timestamps();
 
-        });
-        
-        Schema::table('categories', function (Blueprint $table){
             $table->foreign('user_id')->references('id')->on('users');
-
         });
     }
 
@@ -35,6 +31,7 @@ return new class extends Migration
             $table->dropForeign(['user_id']);
 
         });
+        
         Schema::dropIfExists('categories');
     }
 };
