@@ -52,9 +52,12 @@ nav{
 }
 
 a{
-    color: #fff;
     text-decoration: none;
     list-style: none;
+}
+
+.btn a{
+    color: #fff;
 }
 
 .btn{

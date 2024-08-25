@@ -1,6 +1,7 @@
 <x-layout pageTitle="TODO App">
+    
     <x-slot:supBtn>
-        <a href="#">
+        <a href={{route('task.create')}}>
             <li class="btn btn-primary">Create Task</li>
         </a>
     </x-slot>

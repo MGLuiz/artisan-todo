@@ -6,6 +6,6 @@
     </a>
     </x-slot>
 
-    Login page
+    Tela de editar uma Task
     <a href={{route('home')}} style="font-variant: small-caps">Go to Home</a>
 </x-layout>

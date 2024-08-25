@@ -28,7 +28,7 @@
         <div class="content">
 
             <nav>
-                <h1>My Tasks</h1>
+                <h1></h1>
                 <ul>
                     {{$supBtn ?? null}}
                 </ul>
