@@ -37,17 +37,11 @@
         </div>
 
         <div class="task-list">
-            @php
-                $tasks = [
-                    ['done' => false, 'title' => "My First Task", 'category' => "Cateofria dfd", 'delLink' => '#', 'edit'],
-                    ['done' => true, 'title' => "My Second Task", 'category' => "Cateofria dfd2"],
-                    ['done' => false, 'title' => "My Terthy Task", 'category' => "Cateofria dfd"],
-                ]
-            @endphp
 
-            <x-task :data=$tasks[0] />
-            <x-task :data=$tasks[1] />
-            <x-task :data=$tasks[2] />
+            @foreach ($tasks as $t)
+            <x-task :data=$t/>
+            @endforeach
+
         </div>
     </section> <!-- list -->
 </x-layout>

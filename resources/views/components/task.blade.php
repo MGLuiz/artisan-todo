@@ -7,7 +7,7 @@
     </div>
     <div class="category">
         <div class="sphere"></div>
-        <span class="category-label">{{$data['category'] ?? null}}</span>
+        <span class="category-label">{{$data['category_id'] ?? null}}</span>
     </div>
     <div class="actions" style="cursor: pointer">
         <a href="{{route('task.edit')}}">
