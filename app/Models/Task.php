@@ -11,7 +11,7 @@ class Task extends Model{
     protected $table = 'tasks';
 
     protected $fillable = [
-        'title', 'description', 'due_date', 'user_id', 'category_id'
+        'title', 'is_done', 'description', 'due_date', 'user_id', 'category_id'
     ];
 
     protected $hidden = [
