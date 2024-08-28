@@ -1,0 +1,35 @@
+#create-task-section{
+    margin: auto;
+    padding-top: 2rem;
+    text-align: center;
+}
+
+#create-task-section h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-area{
+    display: block;
+    margin: 10px;
+}
+
+.input-area label{
+    display: block;
+    margin-bottom: 6px;
+}
+
+.input-area input,
+.input-area select{
+    padding: 5px 10px;
+    height: 40px;
+    width: 400px;
+    border-radius: 10px;
+}
+
+.input-area textarea{
+    padding: 5px 10px;
+    height: 120px;
+    width: 400px; 
+    border-radius: 10px;
+}
