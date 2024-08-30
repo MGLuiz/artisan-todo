@@ -1,7 +1,6 @@
 #create-task-section{
     margin: auto;
-    padding-top: 2rem;
-    text-align: center;
+    padding-top: 0.5rem;
 }
 
 #create-task-section h2{
@@ -25,6 +24,8 @@
     height: 40px;
     width: 400px;
     border-radius: 10px;
+    border: 0;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
 }
 
 .input-area textarea{
@@ -32,4 +33,12 @@
     height: 120px;
     width: 400px; 
     border-radius: 10px;
+    border: 0;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn-submit{
+    display: block;
+    margin: auto;
+    width: 50%;
 }

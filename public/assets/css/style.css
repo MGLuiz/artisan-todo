@@ -67,6 +67,8 @@ a{
     padding: 20px 30px;
     border-radius: 12px;
     transition: .5s;
+    border: 0;
+    cursor: pointer;
 }
 .btn:hover{
     transform: scale(1.05);

@@ -9,15 +9,10 @@
     <section id="create-task-section">
         <h2>Create Task</h2>
         <form action="" method="">
-            <div class="input-area">
-                <label for="title">Task Title:</label>
-                <input type="text" name="title" placeholder="Enter the task title" required>
-            </div>
-
-            <div class="input-area">
-                <label for="due_date">Date:</label>
-                <input type="date" name="due_date" id="due_date" required>
-            </div>
+            
+            <x-form.text_input name="title" label="Task Title:" required="true"/>
+            
+            <x-form.text_input name="due_date" label="Date:" type="date" required="true"/>
             
             <div class="input-area">
                 <label for="category">Category:</label>
@@ -33,7 +28,11 @@
                 <label for="description">Description:</label>
                 <textarea name="description" id="description" placeholder="Enter the task description"></textarea>
             </div>
-        </form>
 
+            <div class="input-area">
+                <button type="submit" class="btn btn-primary btn-submit">Criar Tarefa</button>
+            </div>
+
+        </form>
     </section>
 </x-layout>
