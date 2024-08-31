@@ -12,6 +12,8 @@ Route::get('/task', [TaskController::class, 'index'])->name("task.index");
 Route::get('/task/new', [TaskController::class, 'create'])->name("task.create");
 Route::post('/task/store', [TaskController::class, 'store'])->name("task.store");
 
+Route::get('/task/isDone/{id}', [TaskController::class, 'isDonePut']);
+
 Route::get('/task/edit', [TaskController::class, 'edit'])->name("task.edit");
 Route::post('/task/update', [TaskController::class, 'update'])->name('task.update');
 

@@ -1,6 +1,6 @@
 <div class="task">
     <div class="title">
-        <input type="checkbox" name="" id="" 
+        <input type="checkbox" value={{$data['id']}} class="isDone-checkbox"
             @if ($data && $data['is_done']) checked @endif
         />
         <span class="task-title">{{$data['title'] ?? null}}</span>

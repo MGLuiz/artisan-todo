@@ -63,13 +63,25 @@ class TaskController extends Controller
 
     }
 
-    /**
-     * Remove the specified task from storage.
-     */
-    public function destroy(/*string $id*/){
-        sleep(1);
+    public function isDonePut(Request $request){
+        $task = Task::find($request->id);
 
-        // Deleta e redireiciona para home
-        return redirect(route('home'));
+        if($task){
+            $task->update(['is_done' => $request->isDone]);
+            return response()->json(['success' => true]);
+        }else{
+            return response()->json(['success' => false]);
+        }
+    }
+
+    public function destroy(Request $request){
+        $task = Task::find($request->id);
+
+        if($task){
+            $task->delete();
+            return redirect(route('home'));
+        }else{
+            return redirect(route('home'));
+        }
     }
 }

@@ -10,6 +10,9 @@
     <!-- CSS -->
     <link rel="stylesheet" href="/assets/css/style.css">
 
+    <!-- JavaScript -->
+    <script src="/assets/js/script.js" defer></script>
+
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
