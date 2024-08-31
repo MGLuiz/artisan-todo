@@ -14,24 +14,21 @@
             
             <x-form.text_input name="due_date" label="Date:" type="date" required="true"/>
             
-            <div class="input-area">
-                <label for="category">Category:</label>
-                <select name="category" id="">
-                    <option selected disabled value="">Select a category</option>
-                    <option value="">Category 1</option>
-                    <option value="">Category 2</option>
-                    <option value="">Category 3</option>
-                </select>
-            </div>
-            
-            <div class="input-area">
-                <label for="description">Description:</label>
-                <textarea name="description" id="description" placeholder="Enter the task description"></textarea>
-            </div>
+            <x-form.select_input label="Category:" required="true">
+                <x-slot:name>category</x-slot>
 
-            <div class="input-area">
-                <button type="submit" class="btn btn-primary btn-submit">Criar Tarefa</button>
-            </div>
+                <option value="1">Category 1</option>
+                <option value="2">Category 2</option>
+                <option value="3">Category 3</option>
+            </x-form.select_input>
+            
+            <x-form.textarea_input
+                label="Description:"
+                name="description"
+                place="Enter the task description"
+            />
+
+            <x-form.button type="submit">Create Task</x-form.button>
 
         </form>
     </section>
