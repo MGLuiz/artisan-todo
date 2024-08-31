@@ -1,9 +1,9 @@
-#create-task-section{
+#task-section{
     margin: auto;
     padding-top: 0.5rem;
 }
 
-#create-task-section h2{
+#task-section h2{
     text-align: center;
     margin-bottom: 20px;
 }

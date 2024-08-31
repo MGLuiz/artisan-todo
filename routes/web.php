@@ -13,6 +13,8 @@ Route::get('/task/new', [TaskController::class, 'create'])->name("task.create");
 Route::post('/task/store', [TaskController::class, 'store'])->name("task.store");
 
 Route::get('/task/edit', [TaskController::class, 'edit'])->name("task.edit");
+Route::post('/task/update', [TaskController::class, 'update'])->name('task.update');
+
 Route::get('/task/delete', [TaskController::class, 'destroy'])->name("task.delete");
 
 Route::get('/login', [AuthController::class, 'index'])->name("login");

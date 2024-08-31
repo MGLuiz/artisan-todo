@@ -38,20 +38,29 @@ class TaskController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified task.
-     */
-    public function edit(string $id)
-    {
-        //
+    public function edit(Request $request){
+        $task = Task::find($request->id);
+
+        if(!$task){
+            return redirect(route('home'));
+        }else{
+            $data['task'] = $task;
+            $data['categories'] = Category::all();
+            return view('tasks.edit', $data);
+        }
     }
 
-    /**
-     * Update the specified task in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
+    public function update(Request $request){
+        $data = $request->only(['title', 'description', 'due_date', 'category_id']);
+        $task = Task::find($request->id);
+
+        if($task){
+            $task->update($data);
+            return redirect(route('home'));
+        }else{
+            return redirect(route('home'));
+        }
+
     }
 
     /**

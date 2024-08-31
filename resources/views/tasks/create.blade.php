@@ -1,19 +1,19 @@
 <x-layout pageTitle="Login">
 
     <x-slot:supBtn>
-    <a href="{{route('register')}}">
-        <li class="btn btn-primary">Don't have an account? Register</li>
+    <a href="{{route("home")}}">
+        <li class="btn btn-primary">Return to home</li>
     </a>
     </x-slot>
 
-    <section id="create-task-section">
+    <section id="task-section">
         <h2>Create Task</h2>
         <form action="{{route("task.store")}}" method="POST">
             @csrf
 
             <x-form.text_input name="title" label="Task Title:" required="true"/>
             
-            <x-form.text_input name="due_date" label="Date:" type="date" required="true"/>
+            <x-form.text_input name="due_date" label="Date:" type="datetime-local" required="true"/>
             
             <x-form.select_input name="category_id" required="true">
                 <x-slot:label>Category:</x-slot>
