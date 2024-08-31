@@ -8,18 +8,19 @@
 
     <section id="create-task-section">
         <h2>Create Task</h2>
-        <form action="" method="">
-            
+        <form action="{{route("task.store")}}" method="POST">
+            @csrf
+
             <x-form.text_input name="title" label="Task Title:" required="true"/>
             
             <x-form.text_input name="due_date" label="Date:" type="date" required="true"/>
             
-            <x-form.select_input label="Category:" required="true">
-                <x-slot:name>category</x-slot>
+            <x-form.select_input name="category_id" required="true">
+                <x-slot:label>Category:</x-slot>
 
-                <option value="1">Category 1</option>
-                <option value="2">Category 2</option>
-                <option value="3">Category 3</option>
+                @foreach ($categories as $c)
+                    <option value="{{$c->id}}">{{$c->title}}</option>
+                @endforeach
             </x-form.select_input>
             
             <x-form.textarea_input

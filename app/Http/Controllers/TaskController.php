@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Task;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -14,20 +16,18 @@ class TaskController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new task.
-     */
-    public function create()
-    {
-        return view('tasks.create');
+    public function create(){
+        $data['categories'] = Category::all();
+
+        return view('tasks.create', $data);
     }
 
-    /**
-     * Store a newly created task in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request){
+        $task = $request->only(['title', 'description', 'due_date', 'category_id']);
+        $task['user_id'] = 1;
+        Task::create($task);
+
+        return redirect(route('home'));
     }
 
     /**
