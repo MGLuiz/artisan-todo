@@ -79,6 +79,11 @@ a{
     color: #fff;
 }
 
+ul{
+    display: flex;
+    gap: 6px;
+}
+
 main{
     display: flex;
     flex-wrap: wrap;

@@ -1,4 +1,4 @@
-<x-layout pageTitle="Register">
+<x-layout pageTitle="TODO | Register">
     <x-slot:supBtn>
     <a href="{{route('login')}}">
         <li class="btn btn-primary">Already have an account? Login</li>

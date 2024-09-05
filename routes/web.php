@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name("home");
 
 Route::get('/login', [AuthController::class, 'index'])->name("login");
+Route::post('/login', [AuthController::class, 'loginAuth'])->name("loginAuth");
+Route::get('/logout', [AuthController::class, 'logout'])->name("logout");
 
 Route::get('/register', [AuthController::class, 'register'])->name("register");
 Route::post('/register', [AuthController::class, 'storeUser'])->name("storeUser");
@@ -23,3 +25,5 @@ Route::get('/task/edit', [TaskController::class, 'edit'])->name("task.edit");
 Route::post('/task/update', [TaskController::class, 'update'])->name('task.update');
 
 Route::get('/task/delete', [TaskController::class, 'destroy'])->name("task.delete");
+
+Route::get('/ping', function () { return "pong"; });

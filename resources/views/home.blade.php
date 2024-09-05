@@ -4,6 +4,9 @@
         <a href={{route('task.create')}}>
             <li class="btn btn-primary">Create Task</li>
         </a>
+        <a href={{route('logout')}}>
+            <li class="btn btn-primary">Logout</li>
+        </a>
     </x-slot>
 
     <section class="graph">

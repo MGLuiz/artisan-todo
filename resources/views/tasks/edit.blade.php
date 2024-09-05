@@ -1,4 +1,4 @@
-<x-layout pageTitle="Login">
+<x-layout pageTitle="TODO">
 
     <x-slot:supBtn>
         <a href="{{route("home")}}">

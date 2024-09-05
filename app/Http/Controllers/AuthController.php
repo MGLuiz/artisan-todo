@@ -4,26 +4,46 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller{
     public function index(){
-        return view('login');
+
+        if(Auth::check()){
+            return redirect(route('home'));
+        }else{
+            return view('login');
+        }
+    }
+    
+    public function loginAuth(Request $request){
+        $data = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        if (Auth::attempt($data)){
+            return redirect()->route('home');
+        }else{
+            return back()->withErrors(['email' => 'Incorrect email or password.']);
+        }
+
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect(route('login'));
     }
 
     public function register(){
-        return view('register');
+        if (Auth::check()){
+            return redirect(route('home'));
+        }else{
+            return view('register');
+        }
     }
 
     public function storeUser(Request $request){
-        /*
-        ********************************
-        Regras de registro:
-        **
-        x Nenhum campo pode ser "", todos required
-        x Email tem de ser unique
-        x Password tem de ser > 6 caracteres
-        */
 
         $request->validate([
             'name' => 'required',
@@ -33,6 +53,7 @@ class AuthController extends Controller{
 
         $data = $request->only('name', 'email', 'password');
         if ($request->password_confirmation == $data['password']){
+            // caso não tenha hash, usar: $data['password'] = Hash::make($data['password']);
             $userCreated = User::create($data);
         }
 
