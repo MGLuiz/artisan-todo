@@ -1,16 +1,22 @@
 const isDone = document.querySelectorAll(".isDone-checkbox")
+const token = document.querySelector('input[name=_token]').value
 
 for (let chkBox of isDone){
     chkBox.addEventListener('change', () => {
-        makeIsDone(chkBox.getAttribute('value'), chkBox.checked)
+        makeIsDone(chkBox.getAttribute('value'), chkBox.checked, token)
     })
 }
 
-async function makeIsDone(chkBoxValue, isDone){
-    const url = `/task/isDone/${chkBoxValue}?isDone=${isDone ? 1 : 0}`
+async function makeIsDone(chkBoxValue, isDone, _token){
+    const url = `/task/isDone/`
     
-    await fetch(url, {method: "GET"})
-        .then((response) => response.json())
-        .then((json) => console.log(json));
-    console.log("final request")
+    await fetch(url, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+            'accept': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest',  // Required for Laravel CSRF protection
+        },
+        body: JSON.stringify({id: chkBoxValue, isDone, _token}),
+    }).then(response => response.json)
 }

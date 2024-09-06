@@ -40,7 +40,7 @@
         </div>
 
         <div class="task-list">
-
+            @csrf
             @foreach ($tasks as $t)
             <x-task :data=$t/>
             @endforeach
