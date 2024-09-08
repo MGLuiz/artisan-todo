@@ -14,19 +14,23 @@
             <h2>Daily Progress</h2>
             <hr>
             <div class="graph-header-date">
-                < August 24th >
+                <?= date("d-m-Y") ?>
             </div>
         </div>
 
-        <div class="graph-header-subtitle">Tasks: <b>X/Y</b></div>
+        <div class="graph-header-subtitle">Tasks:
+            <b>
+                <span class="doneTasks">{{$totalDoneTasks}}</span>/<span class="total-tasks">{{$totalTasks}}</span>
+            </b>
+        </div>
 
         <div class="graph-placeholder">
             <div class="progress-bar">
-                <span class="progress-bar-percentage">55%</span>
+                <span class="progress-bar-percentage"></span>
             </div>
         </div> <!-- graph-placeholder -->
 
-        <p class="tasks-left">There are Y-X tasks left to complete</p>
+        <p class="tasks-left">There are <span class="pendingTasks">{{$totalPendingTasks}}</span> tasks left to complete</p>
     </section> <!-- graph -->
 
     <section class="list">
