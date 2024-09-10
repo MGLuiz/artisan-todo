@@ -8,6 +8,8 @@ const barPercentage = document.querySelector('.progress-bar-percentage')
 barPercentage.innerHTML = `${doneTasks.innerHTML*100 / totalTasks.innerHTML}%`
 document.documentElement.style.setProperty('--graph-percentage', barPercentage.innerHTML)
 
+/* -------------------------------------------------------------------------------------- */
+
 for (let chkBox of isDone){
     chkBox.addEventListener('change', () => {
         makeIsDone(chkBox.getAttribute('value'), chkBox.checked, token)
@@ -42,3 +44,24 @@ function updatePercentage(change){
         document.documentElement.style.setProperty('--graph-percentage', barPercentage.innerHTML)
     }
 }
+
+function showAllTasks(){
+    document.querySelectorAll('.task').forEach((element) => {
+        element.style.display = 'block';
+    })
+}
+function changeTaskStatusFilter (event){
+    if(event.value == "pending"){
+        showAllTasks()
+        document.querySelectorAll('.done').forEach((element) => {
+            element.style.display = 'none';
+        })
+    }else if(event.value == "done"){
+        showAllTasks()
+        document.querySelectorAll('.pending').forEach((element) => {
+            element.style.display = 'none';
+        })
+    }else{
+        showAllTasks()
+    }
+};

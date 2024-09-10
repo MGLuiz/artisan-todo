@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Task;
 
 class AuthController extends Controller{
     public function index(){
@@ -54,7 +55,7 @@ class AuthController extends Controller{
         $data = $request->only('name', 'email', 'password');
         if ($request->password_confirmation == $data['password']){
             // caso não tenha hash, usar: $data['password'] = Hash::make($data['password']);
-            $userCreated = User::create($data);
+            User::create($data);
         }
 
         return redirect(route('login'));

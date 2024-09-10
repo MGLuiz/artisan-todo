@@ -36,19 +36,18 @@
     <section class="list">
 
         <div class="list-header">
-            <select name="" class="list-header-select">
+            <select name="" class="list-header-select" onChange="changeTaskStatusFilter(this)">
                 <option value="all">All</option>
-                <option value="completed">Completed</option>
-                <option value="incomplete">Incomplete</option>
+                <option value="done">Completed</option>
+                <option value="pending">Incomplete</option>
             </select>
         </div>
 
         <div class="task-list">
             @csrf
             @foreach ($tasks as $t)
-            <x-task :data=$t/>
-            @endforeach
-
+                <x-task :data=$t/>
+            @endforeach 
         </div>
     </section> <!-- list -->
 </x-layout>
